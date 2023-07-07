@@ -1,3 +1,38 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$newspaper-general-primary: mat.define-palette(mat.$indigo-palette);
+$newspaper-general-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$newspaper-general-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$newspaper-general-theme: mat.define-light-theme((
+  color: (
+    primary: $newspaper-general-primary,
+    accent: $newspaper-general-accent,
+    warn: $newspaper-general-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($newspaper-general-theme);
+
 html,
 body {
   margin: 0;
@@ -5,10 +40,11 @@ body {
   height: 100%;
   color: #292929;
   font-family: Helvetica;
+  scroll-behavior: smooth;
 }
 
 h1 {
-  font-family: 'Abril Fatface';
+  font-family: "Abril Fatface";
   font-size: 57px;
   font-style: normal;
   font-weight: 400;
@@ -33,7 +69,10 @@ h4 {
   font-weight: 700;
 }
 
-p, a, li, span {
+p,
+a,
+li,
+span {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -49,4 +88,51 @@ button {
   border: 1px solid #292929;
   border-radius: 50px;
   padding: 0.5em 1em;
+  transition: all 0.1s ease-in-out;
+
+  &:hover {
+    background: #292929;
+    color: #fff;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+  }
 }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #a0a0a0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* Hover/Focus Styles */
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:focus {
+  background-color: #808080;
+}
+
+::-webkit-scrollbar-track:hover,
+::-webkit-scrollbar-track:focus {
+  background-color: #e0e0e0;
+}
+
+/* Active/Selected Styles */
+::-webkit-scrollbar-thumb:active,
+::-webkit-scrollbar-thumb:active:focus {
+  background-color: #606060;
+}
+
+::-webkit-scrollbar-track:active,
+::-webkit-scrollbar-track:active:focus {
+  background-color: #d0d0d0;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

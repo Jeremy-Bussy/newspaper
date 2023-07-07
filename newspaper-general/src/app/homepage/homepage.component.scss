@@ -1,3 +1,7 @@
+.newspaper-wrapper {
+  margin-bottom: 5em;
+}
+
 .user-info {
   display: flex;
   align-items: center;
@@ -5,6 +9,7 @@
   img {
     width: 45px;
     height: 45px;
+    margin-right: 0.5em;
   }
 
   p {
@@ -18,6 +23,23 @@
   justify-content: space-between;
   align-items: center;
   padding: 1em;
-  border-top: 1px solid #8C8C8C;
-  border-bottom: 1px solid #8C8C8C;
+  border-top: 1px solid #8c8c8c;
+  border-bottom: 1px solid #8c8c8c;
+  background: #f8f8f8;
+  margin-bottom: 2em;
+}
+
+.section-divider {
+  margin: 2em auto;
+}
+
+.card-divider {
+  height: 1px;
+  width: 100%;
+  background: #858585;
+}
+
+.section {
+  overflow-y: scroll;
+  height: 45vh;
 }

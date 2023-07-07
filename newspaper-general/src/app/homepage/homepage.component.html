@@ -17,8 +17,35 @@
       <h1>General Newspaper</h1>
     </div>
     <div class="divider">
-      <strong>Resources you follow</strong>
+      <strong>RESOURCES YOU FOLLOW</strong>
       <button>Edit who you follow</button>
+    </div>
+    <div class="following section">
+      <ng-container *ngFor="let article of mockupData">
+        <app-article-card
+          [name]="article.name"
+          [category]="article.category"
+          [title]="article.title"
+          [content]="article.content"
+          [imageUrl]="article.imageUrl"
+        ></app-article-card>
+        <div class="card-divider"></div>
+      </ng-container>
+    </div>
+    <div class="divider section-divider">
+      <strong>THINGS YOU MIGHT FIND INTERESTING</strong>
+    </div>
+    <div class="suggestions section">
+      <ng-container *ngFor="let article of mockupData">
+        <app-article-card
+          [name]="article.name"
+          [category]="article.category"
+          [title]="article.title"
+          [content]="article.content"
+          [imageUrl]="article.imageUrl"
+        ></app-article-card>
+        <div class="card-divider"></div>
+      </ng-container>
     </div>
   </div>
 </div>

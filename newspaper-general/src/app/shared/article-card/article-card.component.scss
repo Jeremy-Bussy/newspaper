@@ -1,0 +1,45 @@
+.article-card-wrapper {
+  padding: 2em 0;
+}
+
+.article-card-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+
+  strong,
+  p {
+    font-size: 14px;
+    margin: 0 auto;
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.right-side {
+  display: flex;
+  align-items: center;
+}
+
+.article-image {
+  img {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+.article-content {
+  button {
+    background: none;
+    color: rgb(61, 161, 255);
+    border: none;
+  }
+}
