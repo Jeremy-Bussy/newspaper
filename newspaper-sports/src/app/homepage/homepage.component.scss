@@ -25,8 +25,13 @@
   padding: 1em;
   border-top: 1px solid #8c8c8c;
   border-bottom: 1px solid #8c8c8c;
-  background: #f8f8f8;
+  background: #052962;
   margin-bottom: 2em;
+
+  strong,
+  button {
+    color: #fafafa;
+  }
 }
 
 .section-divider {
