@@ -1,0 +1,32 @@
+<div class="article-card-wrapper">
+  <div class="article-card-container">
+    <div class="article-content">
+      <div class="author-info">
+        <div class="left-side">
+          <img
+            src="assets/images/profile-picture-holder.png"
+            alt="Profile picture"
+            class="profile-picture"
+          />
+        </div>
+        <div class="right-side">
+          <p>
+            <strong>{{ name | titlecase }}</strong> • #{{
+              category | lowercase
+            }}
+          </p>
+        </div>
+      </div>
+      <div class="article-content">
+        <h3>{{ title | titlecase }}</h3>
+        <p>
+          {{ content | slice : 0 : 200 }} ...
+          <button (click)="openArticleDialog()">read more</button>
+        </p>
+      </div>
+    </div>
+    <div class="article-image">
+      <img src="{{ imageUrl }}" alt="Article image" />
+    </div>
+  </div>
+</div>
