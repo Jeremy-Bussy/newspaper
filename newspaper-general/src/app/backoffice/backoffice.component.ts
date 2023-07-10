@@ -17,7 +17,7 @@ export interface Article {
 export class BackofficeComponent implements OnInit {
   isLoggedUserAdmin = true;
 
-  article = new ArticleModel();
+  articleTest = new ArticleModel();
   constructor(private articleService: ArticleService) {}
 
   article: Article = {
@@ -31,6 +31,6 @@ export class BackofficeComponent implements OnInit {
   ngOnInit(): void {}
 
   onPublish(): void {
-    this.articleService.addArticle(this.article);
+    this.articleService.addArticle(this.articleTest);
   }
 }
