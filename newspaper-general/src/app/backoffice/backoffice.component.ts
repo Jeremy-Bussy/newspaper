@@ -16,21 +16,22 @@ export interface Article {
 })
 export class BackofficeComponent implements OnInit {
   isLoggedUserAdmin = true;
-
-  articleTest = new ArticleModel();
+  latitude: number | null = null;
+  longitude: number | null = null;
+  article = new ArticleModel();
   constructor(private articleService: ArticleService) {}
 
-  article: Article = {
-    title: '',
-    content: '',
-    tags: [],
-    image: '',
-    gpsStreetMapTag: '',
-  };
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   onPublish(): void {
-    this.articleService.addArticle(this.articleTest);
+    this.articleService.addArticle(this.article).subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 }

@@ -33,7 +33,7 @@
             type="text"
             id="tags"
             class="form-control"
-            [(ngModel)]="article.tags"
+            [(ngModel)]="article.category"
             name="tags"
             placeholder="e.g. #economics, #politics, #finance"
           />
@@ -44,20 +44,27 @@
             type="text"
             id="image"
             class="form-control"
-            [(ngModel)]="article.image"
+            [(ngModel)]="article.imageUrl"
             name="image"
             placeholder="https://"
           />
         </div>
         <div class="form-group">
-          <label for="gpsStreetMapTag">GPS Street Map Tag</label>
+          <label for="gpsLongitude">GPS Longitude</label>
           <input
-            type="text"
-            id="gpsStreetMapTag"
+            type="int"
+            id="gpsLongitude"
             class="form-control"
-            [(ngModel)]="article.gpsStreetMapTag"
-            name="gpsStreetMapTag"
-            placeholder="https://"
+            [(ngModel)]="article.longitude"
+            name="gpsLongitude"
+          />
+          <label for="gpsLatitude">GPS Latitude</label>
+          <input
+            type="int"
+            id="gpsLatitude"
+            class="form-control"
+            [(ngModel)]="article.latitude"
+            name="gpsLatitude"
           />
         </div>
         <button type="submit" class="btn btn-primary" (click)="onPublish()">Publish</button>

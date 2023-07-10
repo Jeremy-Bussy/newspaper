@@ -61,10 +61,7 @@ export class HomepageComponent implements OnInit {
   constructor(private articleService: ArticleService) {}
 
   ngOnInit(): void {
-    this.getAllArticles();
-  }
 
-  getAllArticles(): void {
     this.articleService.getAllArticles().subscribe(
       response => {
         console.log(response);
@@ -74,6 +71,8 @@ export class HomepageComponent implements OnInit {
         console.log(error);
       }
     );
+
   }
+
 
 }

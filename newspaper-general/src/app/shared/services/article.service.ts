@@ -8,7 +8,6 @@ import { Injectable } from '@angular/core';
 export class ArticleService {
 
   constructor(private http: HttpClient) {
-    this.getAllArticles();
   }
 
   getAllArticles(): Observable<any> {
@@ -26,10 +25,11 @@ export class ArticleService {
 
   addArticle(article: ArticleModel): Observable<any> {
     const url = environment.apiGoogle + '/articles/';
-
-    const params = (
+    console.log(article);
+    const params = {
       article
-    )
+    };
+
     return this.http.post<any>(url, params);
   }
 
