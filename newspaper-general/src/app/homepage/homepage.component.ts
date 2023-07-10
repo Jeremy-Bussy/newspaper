@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticleService } from '../shared/services/article.service';
 
 export interface ArticleCard {
   name: string;
@@ -57,7 +58,22 @@ export class HomepageComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private articleService: ArticleService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAllArticles();
+  }
+
+  getAllArticles(): void {
+    this.articleService.getAllArticles().subscribe(
+      response => {
+        console.log(response);
+        // this.mockupData = response;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
 }
