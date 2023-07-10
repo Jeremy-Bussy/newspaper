@@ -1,0 +1,22 @@
+<div class="user-list-wrapper">
+  <div class="user-list-container container">
+    <h2>User List</h2>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let user of users">
+        <div class="user-info">
+          <span>{{ user.name }}</span>
+          <button
+            class="btn btn-sm btn-success"
+            *ngIf="!user.isAdmin"
+            (click)="makeAdmin(user)"
+          >
+            Make Admin
+          </button>
+          <span class="badge badge-pill badge-primary" *ngIf="user.isAdmin"
+            >Admin</span
+          >
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

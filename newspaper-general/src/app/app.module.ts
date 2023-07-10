@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -12,6 +13,7 @@ import { ArticleModalComponent } from './shared/article-card/article-modal/artic
 import { LoginComponent } from './auth/login/login.component';
 import { SubscribeModalComponent } from './shared/article-card/subscribe-modal/subscribe-modal.component';
 import { BackofficeComponent } from './backoffice/backoffice.component';
+import { UserListComponent } from './backoffice/user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,14 @@ import { BackofficeComponent } from './backoffice/backoffice.component';
     LoginComponent,
     SubscribeModalComponent,
     BackofficeComponent,
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
