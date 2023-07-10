@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ArticleService } from '../shared/services/article.service';
+import { ArticleModel } from '../shared/models/article.model';
 export interface Article {
   title: string;
   content: string;
@@ -16,7 +17,8 @@ export interface Article {
 export class BackofficeComponent implements OnInit {
   isLoggedUserAdmin = true;
 
-  constructor() {}
+  articleTest = new ArticleModel();
+  constructor(private articleService: ArticleService) {}
 
   article: Article = {
     title: '',
@@ -27,4 +29,8 @@ export class BackofficeComponent implements OnInit {
   };
 
   ngOnInit(): void {}
+
+  onPublish(): void {
+    this.articleService.addArticle(this.articleTest);
+  }
 }
