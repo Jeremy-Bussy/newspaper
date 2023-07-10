@@ -1,0 +1,70 @@
+<div class="backoffice-wrapper">
+  <div class="backoffice-container container">
+    <div class="create-article">
+      <h1>Create/Edit Article</h1>
+      <form class="form">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            class="form-control"
+            [(ngModel)]="article.title"
+            name="title"
+            placeholder="e.g. The Economy of the United States"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="content">Content</label>
+          <textarea
+            id="content"
+            class="form-control"
+            [(ngModel)]="article.content"
+            name="content"
+            rows="6"
+            placeholder="Your article content here..."
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="tags">Tags</label>
+          <input
+            type="text"
+            id="tags"
+            class="form-control"
+            [(ngModel)]="article.tags"
+            name="tags"
+            placeholder="e.g. #economics, #politics, #finance"
+          />
+        </div>
+        <div class="form-group">
+          <label for="image">Image URL</label>
+          <input
+            type="text"
+            id="image"
+            class="form-control"
+            [(ngModel)]="article.image"
+            name="image"
+            placeholder="https://"
+          />
+        </div>
+        <div class="form-group">
+          <label for="gpsStreetMapTag">GPS Street Map Tag</label>
+          <input
+            type="text"
+            id="gpsStreetMapTag"
+            class="form-control"
+            [(ngModel)]="article.gpsStreetMapTag"
+            name="gpsStreetMapTag"
+            placeholder="https://"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Publish</button>
+      </form>
+    </div>
+    <div class="user-list" *ngIf="isLoggedUserAdmin">
+      <app-user-list></app-user-list>
+    </div>
+  </div>
+</div>
