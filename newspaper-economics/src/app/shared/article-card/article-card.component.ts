@@ -19,22 +19,6 @@ export class ArticleCardComponent implements OnInit {
 
 
   openArticleDialog() {
-<<<<<<< HEAD
-    if (this.isSubscribed) {
-      const dialogRef = this.dialog.open(ArticleModalComponent, {
-        width: '800px',
-        data: {
-          name: this.article?.auteur_name,
-          category: this.article?.categorie_name,
-          image: this.article?.image,
-          title: this.article?.titre,
-          content: this.article?.corp,
-        },
-      });
-    } else {
-      this.openSubscribeDialog();
-    }
-=======
     this.articleService.getArticleById(this.article || new ArticleModel()).subscribe({
       next: any => {
         this.dialog.open(ArticleModalComponent, {
@@ -53,7 +37,6 @@ export class ArticleCardComponent implements OnInit {
         }
       }
     )
->>>>>>> b25d98adf670e8f55d86958ff7ee61c61b4ea2fe
   }
 
   openSubscribeDialog() {
