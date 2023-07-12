@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -16,6 +17,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { SubscribeModalComponent } from './shared/article-card/subscribe-modal/subscribe-modal.component';
 import { MapInitDirective } from './shared/article-card/map-init.directive';
 
+import { AuthService } from './shared/services/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,8 +37,11 @@ import { MapInitDirective } from './shared/article-card/map-init.directive';
     BrowserAnimationsModule,
     MatDialogModule,
     FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    AuthService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,20 +1,27 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { UserModel } from '../models/user.model';
 
 export class UserService {
+  header = new HttpHeaders({ "Authorization": "Bearer " + localStorage.getItem('accessToken')});
+
   constructor(private http: HttpClient) {
   }
 
   getUserById(user: UserModel) {
     const url = environment.api + '/user/' + user.id;
 
-    return this.http.get(url);
+    const params = {
+      headers: this.header,
+    }
+
+    return this.http.get(url, params);
   }
   checkConnexion(email: string, password: string) {
     const url = environment.api + '/auth';
 
     const params = {
+      headers: this.header,
       email,
       password
     };
@@ -26,6 +33,7 @@ export class UserService {
     const url = environment.api + '/user/createadmin';
 
     const params = {
+      headers: this.header,
       user
     };
 
@@ -36,6 +44,7 @@ export class UserService {
     const url = environment.api + '/user/updateadmin';
 
     const params = {
+      headers: this.header,
       user
     };
 
@@ -45,6 +54,7 @@ export class UserService {
     const url = environment.api + '/user/check';
 
     const params = {
+      headers: this.header,
       user
     };
 
@@ -55,22 +65,31 @@ export class UserService {
     const url = environment.api + '/user/updateuser';
 
     const params = {
+      headers: this.header,
       user
     };
 
     return this.http.put<any>(url, params);
   }
-  
+
   deleteUser(user:UserModel) {
     const url = environment.api + '/user/' + user.id;
-    
-    return this.http.delete(url);
+
+    const params = {
+      headers: this.header,
+    }
+
+    return this.http.delete(url, params);
   }
 
   getAllUser() {
     const url = environment.api + '/user/';
 
-    return this.http.get(url);
+    const params = {
+      headers: this.header,
+    }
+
+    return this.http.get(url, params);
   }
 
 
@@ -78,6 +97,7 @@ export class UserService {
     const url = environment.api + '/user/checkadmin';
 
     const params = {
+      headers: this.header,
       id: user.id
     };
 
@@ -86,7 +106,11 @@ export class UserService {
 
   checkSubscription(user: UserModel) {
     const url = environment.api + '/user/' + user.id + '/abonnements';
-    
-    return this.http.get(url);
+
+    const params = {
+      headers: this.header,
+    }
+
+    return this.http.get(url, params);
   }
 }
