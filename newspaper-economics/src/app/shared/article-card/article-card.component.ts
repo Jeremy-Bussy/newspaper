@@ -13,7 +13,7 @@ import {ArticleService} from "../services/article.service";
 })
 export class ArticleCardComponent implements OnInit {
   @Input() article: ArticleModel | undefined;
-  @Input() isSubscribed: boolean = false;
+  @Input() isSubscribed: boolean = true;
 
   constructor(private dialog: MatDialog,private articleService: ArticleService) {}
 
@@ -38,6 +38,7 @@ export class ArticleCardComponent implements OnInit {
       }
     )
   }
+
 
   openSubscribeDialog() {
     const dialogRef = this.dialog.open(SubscribeModalComponent, {
