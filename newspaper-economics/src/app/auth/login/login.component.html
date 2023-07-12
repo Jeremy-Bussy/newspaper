@@ -1,14 +1,15 @@
 <div class="login-wrapper">
   <div class="login-container container">
     <h2>Login</h2>
-    <form class="login-form">
+    <div class="login-form">
       <div class="form-group">
-        <label for="name">Username</label>
+        <label for="name">Email</label>
         <input
           type="text"
-          id="name"
+          id="email"
           class="form-control"
-          placeholder="Enter your username"
+          placeholder="e.g. address@example.com"
+          [ngModel]="auth.email"
           required
         />
       </div>
@@ -19,12 +20,22 @@
           id="password"
           class="form-control"
           placeholder="Enter your password"
+          [ngModel]="auth.password"
           required
         />
       </div>
-      <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="login()"
+        [disabled]="!auth.email || !auth.password"
+      >
+        Login
+      </button>
       <div class="or-divider">or</div>
-      <button class="btn btn-google" (click)="loginGoogle()">Login with Google</button>
-    </form>
+      <button class="btn btn-google" (click)="loginGoogle()">
+        Login with Google
+      </button>
+    </div>
   </div>
 </div>

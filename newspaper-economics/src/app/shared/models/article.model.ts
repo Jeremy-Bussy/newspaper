@@ -1,4 +1,4 @@
-import { LocalisationModel } from '../models/localisationModel';
+import { LocalisationModel } from './localisationModel';
 export class ArticleModel {
   id: number | null = null;
   titre: string | null = null;

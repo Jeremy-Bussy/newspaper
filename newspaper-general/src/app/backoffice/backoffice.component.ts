@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleService } from '../shared/services/article.service';
-import { ArticleModel } from '../shared/models/article.model';
+
 export interface Article {
   title: string;
   content: string;
@@ -16,22 +15,16 @@ export interface Article {
 })
 export class BackofficeComponent implements OnInit {
   isLoggedUserAdmin = true;
-  latitude: number | null = null;
-  longitude: number | null = null;
-  article = new ArticleModel();
-  constructor(private articleService: ArticleService) {}
 
-  ngOnInit(): void {
-  }
+  constructor() {}
 
-  onPublish(): void {
-    this.articleService.addArticle(this.article).subscribe(
-      response => {
-        console.log(response);
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
+  article: Article = {
+    title: '',
+    content: '',
+    tags: [],
+    image: '',
+    gpsStreetMapTag: '',
+  };
+
+  ngOnInit(): void {}
 }
