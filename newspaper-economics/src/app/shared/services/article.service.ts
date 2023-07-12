@@ -14,52 +14,44 @@ export class ArticleService {
 
   addArticle(article: ArticleModel): Observable<any> {
     const url = environment.api + '/articles/';
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
     const params = {
-      headers: this.header,
       article
     };
 
-    return this.http.post<any>(url, params);
+    return this.http.post<any>(url, params, {headers});
   }
 
   updateArticle(article: ArticleModel): Observable<any> {
     const url = environment.api + '/articles/' + article.id;
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
     const params = {
-      headers: this.header,
       article
     };
-    return this.http.put<any>(url, params);
+
+    return this.http.put<any>(url, params, {headers});
   }
 
   deleteArticle(article: ArticleModel) {
     const url = environment.api + '/articles/' + article.id;
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
-    const params = {
-      headers: this.header,
-    }
-
-    return this.http.delete(url, params);
+    return this.http.delete(url, {headers});
   }
 
   getArticleById(article: ArticleModel): Observable<any> {
     const url = environment.api + '/articles/' + article.id;
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
-    const params = {
-      headers: this.header,
-    }
-
-    return this.http.get(url, params);
+    return this.http.get(url, {headers});
   }
 
   getAllArticles(): Observable<any> {
     const url = environment.api + '/articles/';
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
-    const params = {
-      headers: this.header,
-    }
-
-    return this.http.get(url, params);
+    return this.http.get(url, {headers});
   }
 }

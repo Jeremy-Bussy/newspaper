@@ -13,52 +13,43 @@ export class CategoriesService {
 
   addCategory(category: any): Observable<any> {
     const url = environment.api + '/categories/';
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
     const params = {
-      headers: this.header,
       category
     };
 
-    return this.http.post<any>(url, params);
+    return this.http.post<any>(url, params, {headers});
   }
 
   updateCategory(category: any): Observable<any> {
     const url = environment.api + '/categories/' + category.id;
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
     const params = {
-      headers: this.header,
       category
     }
-    return this.http.put<any>(url, params);
+    return this.http.put<any>(url, params, {headers});
   }
 
   deleteCategory(category: any) {
     const url = environment.api + '/categories/' + category.id;
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
-    const params = {
-      headers: this.header,
-    }
-
-    return this.http.delete(url, params);
+    return this.http.delete(url, {headers});
   }
 
   getCategoryById(id: number): Observable<any> {
     const url = environment.api + '/categories/' + id;
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
-    const params = {
-      headers: this.header,
-    }
-
-    return this.http.get(url, params);
+    return this.http.get(url, {headers});
   }
 
   getAllCategory(): Observable<any> {
     const url = environment.api + '/categories/';
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
-    const params = {
-      headers: this.header,
-    }
-
-    return this.http.get(url, params);
+    return this.http.get(url, {headers});
   }
 }
