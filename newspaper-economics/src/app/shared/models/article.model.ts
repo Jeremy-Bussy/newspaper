@@ -12,6 +12,7 @@ export class ArticleModel {
 
   categorie_id: number | null = null;
   categorie: string | null = null;
+
   date_creation: string | null = null;
   localisation: LocalisationModel[] = [];
 }

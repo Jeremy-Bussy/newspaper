@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './auth/login/login.component';
-import { RoleGuard } from './auth/role.guard';
-import { BackofficeComponent } from './backoffice/backoffice.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { BackofficeComponent } from './backoffice/backoffice.component';
+import { RoleGuard } from './auth/role.guard';
+import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },

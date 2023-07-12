@@ -5,10 +5,12 @@ export class ArticleModel {
   preview: string | null = null;
   corp: string | null = null;
   image: string | null = null;
-  author_name: string | null = null;
+  auteur_name: string | null = null;
+  auteur_id: number | null = null;
   premium: boolean = false;
-  visible: boolean = false;
-  category_name: string | null = null;
+  visible: boolean = true;
+  categorie_id: number | null = null;
+  categorie_name: string | null = null;
   date_creation: string | null = null;
   localisation: LocalisationModel[] = [];
 }

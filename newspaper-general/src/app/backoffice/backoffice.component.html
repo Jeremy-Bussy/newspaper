@@ -9,7 +9,7 @@
             type="text"
             id="title"
             class="form-control"
-            [(ngModel)]="article.title"
+            [(ngModel)]="article.titre"
             name="title"
             placeholder="e.g. The Economy of the United States"
             required
@@ -20,7 +20,7 @@
           <textarea
             id="content"
             class="form-control"
-            [(ngModel)]="article.content"
+            [(ngModel)]="article.corp"
             name="content"
             rows="6"
             placeholder="Your article content here..."
@@ -29,17 +29,14 @@
         </div>
         <div class="form-group">
           <label for="tags">Tags</label>
-          <select name="tag" id="tag">
-            <option value="economics">Economics</option>
-            <option value="politics">Politics</option>
-            <option value="sports">Sports</option>
+          <select name="tag" id="tag" [(ngModel)]="article.categorie_id">
+            <option *ngFor="let categorie of categoriesList" [value]="categorie.id">{{categorie.nom}}</option>
           </select>
         </div>
         <div class="form-group">
           <label for="image">Image URL</label>
           <input
-            type="file"
-            accept="image/*"
+            type="text"
             id="image"
             class="form-control"
             [(ngModel)]="article.image"
@@ -53,13 +50,40 @@
             type="text"
             id="gpsStreetMapTag"
             class="form-control"
-            [(ngModel)]="article.gpsStreetMapTag"
+            [(ngModel)]="localisation.x"
             name="gpsStreetMapTag"
-            placeholder="https://"
+            placeholder="longitude"
+          />
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="localisation.y"
+            name="gpsStreetMapTag"
+            placeholder="latitude"
           />
         </div>
-        <button type="submit" class="btn btn-primary">Publish</button>
+        <div class="form-group">
+          <label for="premium">Article Premium</label>
+          <input
+            type="checkbox"
+            id="premium"
+            class="form-control"
+            [(ngModel)]="article.premium"
+          />
+        </div>
+        <div class="form-group">
+          <label for="visible">Article Visible</label>
+          <input
+            type="checkbox"
+            id="visible"
+            class="form-control"
+            [(ngModel)]="article.visible"
+            checked
+          />
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Publish</button>
       </form>
+      <p *ngIf="successSaved">Article added successfully</p>
     </div>
     <div class="user-list" *ngIf="isLoggedUserAdmin">
       <app-user-list></app-user-list>
