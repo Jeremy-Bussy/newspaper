@@ -8,46 +8,42 @@ import { Injectable } from '@angular/core';
 export class ArticleService {
 
   constructor(private http: HttpClient) {
-    this.getAllArticles();
-  }
-
-  getAllArticles(): Observable<any> {
-    const url = environment.api + '/articles/';
-    console.log(url);
-
-    return this.http.get(url);
-  }
-
-  getArticleById(id: number): Observable<any> {
-    const url = environment.apiGoogle + '/articles?id=' + id;
-
-    return this.http.get(url);
   }
 
   addArticle(article: ArticleModel): Observable<any> {
-    const url = environment.apiGoogle + '/articles/';
+    const url = environment.api + '/articles/';
 
-    const params = (
+    const params = {
       article
-    )
-    return this.http.post<any>(url, params);
-  }
+    };
 
-  hideArticle(id: number): Observable<any> {
-    const url = environment.apiGoogle + '/articles/hide';
-
-    const params = (
-      id
-    )
     return this.http.post<any>(url, params);
   }
 
   updateArticle(article: ArticleModel): Observable<any> {
-    const url = environment.apiGoogle + '/articles';
+    const url = environment.api + '/articles/' + article.id;
 
     const params = (
       article
     )
     return this.http.put<any>(url, params);
+  }
+
+  deleteArticle(article: ArticleModel) {
+    const url = environment.api + '/articles/' + article.id;
+
+    return this.http.delete(url);
+  }
+
+  getArticleById(article: ArticleModel): Observable<any> {
+    const url = environment.api + '/articles/' + article.id;
+
+    return this.http.get(url);
+  }
+
+  getAllArticles(): Observable<any> {
+    const url = environment.api + '/articles/';
+
+    return this.http.get(url);
   }
 }

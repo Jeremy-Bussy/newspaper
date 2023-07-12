@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleModel } from '../shared/models/article.model';
+import { ArticleService } from '../shared/services/article.service';
 
 @Component({
   selector: 'app-homepage',
@@ -18,8 +19,10 @@ export class HomepageComponent implements OnInit {
       premium: false,
       visible: true,
       category: 'General',
-      image: 'https://example.com/image.jpg',
+      imageUrl: 'https://example.com/imageUrl.jpg',
       author: 'John Doe',
+      longitude: '0.000000',
+      latitude: '0.000000',
     },
     {
       id: 2,
@@ -31,8 +34,10 @@ export class HomepageComponent implements OnInit {
       premium: false,
       visible: true,
       category: 'General',
-      image: 'https://example.com/image.jpg',
+      imageUrl: 'https://example.com/imageUrl.jpg',
       author: 'John Doe',
+      longitude: '0.000000',
+      latitude: '0.000000',
     },
     {
       id: 3,
@@ -44,8 +49,10 @@ export class HomepageComponent implements OnInit {
       premium: false,
       visible: true,
       category: 'General',
-      image: 'https://example.com/image.jpg',
+      imageUrl: 'https://example.com/imageUrl.jpg',
       author: 'John Doe',
+      longitude: '0.000000',
+      latitude: '0.000000',
     },
     {
       id: 4,
@@ -57,8 +64,10 @@ export class HomepageComponent implements OnInit {
       premium: false,
       visible: true,
       category: 'General',
-      image: 'https://example.com/image.jpg',
+      imageUrl: 'https://example.com/imageUrl.jpg',
       author: 'John Doe',
+      longitude: '0.000000',
+      latitude: '0.000000',
     },
     {
       id: 5,
@@ -70,8 +79,10 @@ export class HomepageComponent implements OnInit {
       premium: false,
       visible: true,
       category: 'General',
-      image: 'https://example.com/image.jpg',
+      imageUrl: 'https://example.com/imageUrl.jpg',
       author: 'John Doe',
+      longitude: '0.000000',
+      latitude: '0.000000',
     },
     {
       id: 6,
@@ -83,12 +94,28 @@ export class HomepageComponent implements OnInit {
       premium: false,
       visible: true,
       category: 'General',
-      image: 'https://example.com/image.jpg',
+      imageUrl: 'https://example.com/imageUrl.jpg',
       author: 'John Doe',
+      longitude: '0.000000',
+      latitude: '0.000000',
     },
   ];
 
-  constructor() {}
+  constructor(private articleService: ArticleService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    this.articleService.getAllArticles().subscribe(
+      response => {
+        console.log(response);
+        // this.mockupData = response;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
+  }
+
+
 }

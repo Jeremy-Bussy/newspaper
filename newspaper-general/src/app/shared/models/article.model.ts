@@ -6,7 +6,9 @@ export class ArticleModel {
   date_creation: string | null = null;
   premium: boolean = false;
   visible: boolean = false;
-  category: string | null = null;
-  image: string | null = null;
+  imageUrl: string | null = null;
   author: string | null = null;
+  category: string | null = null;
+  longitude: string | null = null;
+  latitude: string | null = null;
 }
