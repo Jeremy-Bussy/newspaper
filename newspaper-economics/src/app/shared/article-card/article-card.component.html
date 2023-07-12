@@ -11,22 +11,22 @@
         </div>
         <div class="right-side">
           <p>
-            <strong>{{ name | titlecase }}</strong> • #{{
-              category | lowercase
+            <strong>{{ article!.author | titlecase }}</strong> • #{{
+              article!.category | lowercase
             }}
           </p>
         </div>
       </div>
       <div class="article-content">
-        <h3>{{ title | titlecase }}</h3>
+        <h3>{{ article!.title | titlecase }}</h3>
         <p>
-          {{ content | slice : 0 : 200 }} ...
+          {{ article!.preview | slice : 0 : 200 }} ...
           <button (click)="openArticleDialog()">read more</button>
         </p>
       </div>
     </div>
     <div class="article-image">
-      <img src="{{ imageUrl }}" alt="Article image" />
+      <img src="{{ article!.image }}" alt="Article image" />
     </div>
   </div>
 </div>

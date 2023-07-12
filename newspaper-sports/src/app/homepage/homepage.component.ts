@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface ArticleCard {
-  name: string;
-  category: string;
-  imageUrl: string;
-  title: string;
-  content: string;
-}
+import { ArticleModel } from '../shared/models/article.model';
 
 @Component({
   selector: 'app-homepage',
@@ -14,46 +7,84 @@ export interface ArticleCard {
   styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements OnInit {
-  mockupData: ArticleCard[] = [
+  mockupData: ArticleModel[] = [
     {
-      name: 'John Doe',
-      category: 'News',
-      imageUrl: 'https://picsum.photos/seed/picsum/200/300',
-      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      id: 1,
+      title: 'Lorem ipsum dolor sit amet',
+      preview: 'Lorem ipsum dolor sit amet...',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Donec sed odio dui.',
+        'Lorem ipsum dolor sit amet sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      date_creation: '2022-01-01',
+      premium: false,
+      visible: true,
+      category: 'Sports',
+      image: 'https://example.com/image.jpg',
+      author: 'John Doe',
     },
     {
-      name: 'John Doe',
-      category: 'News',
-      imageUrl: 'https://picsum.photos/seed/picsum/200/300',
-      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      id: 2,
+      title: 'Lorem ipsum dolor sit amet',
+      preview: 'Lorem ipsum dolor sit amet...',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Donec sed odio dui.',
+        'Lorem ipsum dolor sit amet sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      date_creation: '2022-01-01',
+      premium: false,
+      visible: true,
+      category: 'Sports',
+      image: 'https://example.com/image.jpg',
+      author: 'John Doe',
     },
     {
-      name: 'John Doe',
-      category: 'News',
-      imageUrl: 'https://picsum.photos/seed/picsum/200/300',
-      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      id: 3,
+      title: 'Lorem ipsum dolor sit amet',
+      preview: 'Lorem ipsum dolor sit amet...',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Donec sed odio dui.',
+        'Lorem ipsum dolor sit amet sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      date_creation: '2022-01-01',
+      premium: false,
+      visible: true,
+      category: 'Sports',
+      image: 'https://example.com/image.jpg',
+      author: 'John Doe',
     },
     {
-      name: 'John Doe',
-      category: 'News',
-      imageUrl: 'https://picsum.photos/seed/picsum/200/300',
-      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      id: 4,
+      title: 'Lorem ipsum dolor sit amet',
+      preview: 'Lorem ipsum dolor sit amet...',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Donec sed odio dui.',
+        'Lorem ipsum dolor sit amet sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      date_creation: '2022-01-01',
+      premium: false,
+      visible: true,
+      category: 'Sports',
+      image: 'https://example.com/image.jpg',
+      author: 'John Doe',
     },
     {
-      name: 'John Doe',
-      category: 'News',
-      imageUrl: 'https://picsum.photos/seed/picsum/200/300',
-      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      id: 5,
+      title: 'Lorem ipsum dolor sit amet',
+      preview: 'Lorem ipsum dolor sit amet...',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Donec id elit non mi porta gravida at eget metus. Donec sed odio dui.',
+        'Lorem ipsum dolor sit amet sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      date_creation: '2022-01-01',
+      premium: false,
+      visible: true,
+      category: 'Sports',
+      image: 'https://example.com/image.jpg',
+      author: 'John Doe',
+    },
+    {
+      id: 6,
+      title: 'Lorem ipsum dolor sit amet',
+      preview: 'Lorem ipsum dolor sit amet...',
+      content:
+        'Lorem ipsum dolor sit amet sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      date_creation: '2022-01-01',
+      premium: false,
+      visible: true,
+      category: 'Sports',
+      image: 'https://example.com/image.jpg',
+      author: 'John Doe',
     },
   ];
 

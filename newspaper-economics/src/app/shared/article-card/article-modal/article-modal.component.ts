@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ArticleModel } from '../../models/article.model';
 
 @Component({
   selector: 'app-article-modal',
@@ -10,13 +11,7 @@ export class ArticleModalComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<ArticleModalComponent>,
     @Inject(MAT_DIALOG_DATA)
-    public data: {
-      title: string;
-      content: string;
-      name: string;
-      category: string;
-      imageUrl: string;
-    }
+    public data: ArticleModel
   ) {}
 
   ngOnInit(): void {}

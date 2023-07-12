@@ -21,30 +21,9 @@
     </div>
     <div class="following section">
       <ng-container *ngFor="let article of mockupData">
-        <app-article-card
-          [name]="article.name"
-          [category]="article.category"
-          [title]="article.title"
-          [content]="article.content"
-          [imageUrl]="article.imageUrl"
-        ></app-article-card>
+        <app-article-card [article]="article"></app-article-card>
         <div class="card-divider"></div>
       </ng-container>
     </div>
-    <!-- <div class="divider section-divider">
-      <strong>THINGS YOU MIGHT FIND INTERESTING</strong>
-    </div>
-    <div class="suggestions section">
-      <ng-container *ngFor="let article of mockupData">
-        <app-article-card
-          [name]="article.name"
-          [category]="article.category"
-          [title]="article.title"
-          [content]="article.content"
-          [imageUrl]="article.imageUrl"
-        ></app-article-card>
-        <div class="card-divider"></div>
-      </ng-container>
-    </div> -->
   </div>
 </div>
