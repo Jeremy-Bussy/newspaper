@@ -13,107 +13,95 @@ export class UserService {
 
   getUserById(user: UserModel) {
     const url = environment.api + '/user/' + user.id;
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
-    const params = {
-      headers: this.header,
-    }
-
-    return this.http.get(url, params);
+    return this.http.get(url, {headers});
   }
   checkConnexion(email: string, password: string) {
     const url = environment.api + '/auth';
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
     const params = {
-      headers: this.header,
       email,
       password
     };
 
-    return this.http.post<any>(url, params);
+    return this.http.post<any>(url, params, {headers});
   }
 
   AddAdmin(user: UserModel) {
     const url = environment.api + '/user/createadmin';
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
     const params = {
-      headers: this.header,
       user
     };
 
-    return this.http.post<any>(url, params);
+    return this.http.post<any>(url, params, {headers});
   }
 
   updateAdmin(user: UserModel) {
     const url = environment.api + '/user/updateadmin';
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
     const params = {
-      headers: this.header,
       user
     };
 
-    return this.http.put<any>(url, params);
+    return this.http.put<any>(url, params, {headers});
   }
   AddUser(user: UserModel) {
     const url = environment.api + '/user/check';
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
     const params = {
-      headers: this.header,
       user
     };
 
-    return this.http.post<any>(url, params);
+    return this.http.post<any>(url, params, {headers});
   }
 
   updateUser(user: UserModel) {
     const url = environment.api + '/user/updateuser';
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
     const params = {
-      headers: this.header,
       user
     };
 
-    return this.http.put<any>(url, params);
+    return this.http.put<any>(url, params, {headers});
   }
 
   deleteUser(user:UserModel) {
     const url = environment.api + '/user/' + user.id;
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
-    const params = {
-      headers: this.header,
-    }
-
-    return this.http.delete(url, params);
+    return this.http.delete(url, {headers});
   }
 
   getAllUser() {
     const url = environment.api + '/user/';
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
-    const params = {
-      headers: this.header,
-    }
-
-    return this.http.get(url, params);
+    return this.http.get(url, {headers});
   }
 
 
   checkAdmin(user: UserModel) {
     const url = environment.api + '/user/checkadmin';
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
     const params = {
-      headers: this.header,
       id: user.id
     };
 
-    return this.http.post<any>(url, params);
+    return this.http.post<any>(url, params, {headers});
   }
 
   checkSubscription(user: UserModel) {
     const url = environment.api + '/user/' + user.id + '/abonnements';
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
-    const params = {
-      headers: this.header,
-    }
-
-    return this.http.get(url, params);
+    return this.http.get(url, {headers});
   }
 }

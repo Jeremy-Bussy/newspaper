@@ -17,13 +17,15 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    console.log('login clicked');
-    console.log(this.auth);
     this.authService.authentificate(this.auth.email!, this.auth.password!).subscribe(
       (response: any) => {
         console.log(response);
         localStorage.setItem('accessToken', response.access_token);
-        localStorage.setItem('username', response.user.name);
+        if (response.user) {
+          localStorage.setItem('userId', response.user.id);
+          localStorage.setItem('username', response.user.name);
+          window.location.href = '/';
+        }
       }
     );
   }

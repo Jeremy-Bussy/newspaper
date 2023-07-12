@@ -6,19 +6,21 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AbonnementService {
-  header = new HttpHeaders({ "Authorization": "Bearer " + localStorage.getItem('accessToken')});
+  journalId = 3;
 
   constructor(private http: HttpClient) {
   }
 
   addAbonnement(abonnement: any) {
-    const url = environment.api + '/abonnement';
+    const url = environment.api + '/abonnements ';
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
+    abonnement.journal_id = this.journalId;
     const params = {
-      headers: this.header,
-      abonnement
+      users_id: abonnement.users_id,
+      journal_id: abonnement.journal_id
     };
 
-    return this.http.post<any>(url, params);
+    return this.http.post<any>(url, params, {headers});
   }
 }
