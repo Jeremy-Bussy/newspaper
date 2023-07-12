@@ -99,9 +99,12 @@ export class UserService {
   }
 
   checkSubscription(user: UserModel) {
-    const url = environment.api + '/user/' + user.id + '/abonnements';
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
+    const url = environment.api + '/user/' + environment.journalid + '/abonnements';
 
-    return this.http.get(url, {headers});
+    const params = {
+      email: user.email
+    }
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
+    return this.http.post(url,params,{headers} );
   }
 }

@@ -11,8 +11,13 @@
         </div>
         <div class="right-side">
           <p>
+<<<<<<< HEAD
             <strong>{{ article!.auteur_name | titlecase }}</strong> • #{{
               article!.categorie_name | lowercase
+=======
+            <strong>{{ article!.auteur | titlecase }}</strong> • #{{
+              article!.categorie | lowercase
+>>>>>>> b25d98adf670e8f55d86958ff7ee61c61b4ea2fe
             }}
           </p>
         </div>
@@ -25,7 +30,7 @@
         </p>
       </div>
     </div>
-    <div class="article-image">
+    <div class="article-image" *ngIf="!!article?.image">
       <img src="{{ article?.image }}" alt="Article image" />
     </div>
   </div>
