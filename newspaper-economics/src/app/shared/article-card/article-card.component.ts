@@ -20,8 +20,8 @@ export class ArticleCardComponent implements OnInit {
       const dialogRef = this.dialog.open(ArticleModalComponent, {
         width: '800px',
         data: {
-          name: this.article?.author_name,
-          category: this.article?.category_name,
+          name: this.article?.auteur_name,
+          category: this.article?.categorie_name,
           image: this.article?.image,
           title: this.article?.titre,
           content: this.article?.corp,

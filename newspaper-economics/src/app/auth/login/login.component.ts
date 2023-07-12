@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('accessToken', response.access_token);
         if (response.user) {
           localStorage.setItem('userId', response.user.id);
+          localStorage.setItem('user', JSON.stringify(response.user));
           localStorage.setItem('username', response.user.name);
           window.location.href = '/';
         }

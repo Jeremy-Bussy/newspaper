@@ -17,7 +17,14 @@ export class ArticleService {
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
     const params = {
-      article
+      titre: article.titre,
+      corp: article.corp,
+      image: article.image,
+      auteur_id: article.auteur_id,
+      premium: article.premium,
+      visible: article.visible,
+      categorie_id: article.categorie_id,
+      localisation: article.localisation,
     };
 
     return this.http.post<any>(url, params, {headers});
@@ -28,7 +35,14 @@ export class ArticleService {
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
     const params = {
-      article
+      titre: article.titre,
+      corp: article.corp,
+      image: article.image,
+      auteur_id: article.auteur_id,
+      premium: article.premium,
+      visible: article.visible,
+      categorie_id: article.categorie_id,
+      localisation: article.localisation,
     };
 
     return this.http.put<any>(url, params, {headers});
