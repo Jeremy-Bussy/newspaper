@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ArticleModalComponent } from './article-modal/article-modal.component';
 import { SubscribeModalComponent } from './subscribe-modal/subscribe-modal.component';
 import { ArticleModel } from '../models/article.model';
+import {UserModel} from "../models/user.model";
 
 @Component({
   selector: 'app-article-card',
@@ -15,13 +16,19 @@ export class ArticleCardComponent implements OnInit {
 
   constructor(private dialog: MatDialog) {}
 
+
   openArticleDialog() {
-    if (this.isSubscribed) {
+    let user = localStorage.getItem('user');
+    if(user != null){
+      let userAuth: UserModel = JSON.parse(user);
+      this.isSubscribed = userAuth?.premium || false;
+    }
+    if (this.isSubscribed || this.article?.premium == false) {
       const dialogRef = this.dialog.open(ArticleModalComponent, {
         width: '800px',
         data: {
-          name: this.article?.author_name,
-          category: this.article?.category_name,
+          name: this.article?.auteur,
+          category: this.article?.categorie,
           image: this.article?.image,
           title: this.article?.titre,
           content: this.article?.corp,

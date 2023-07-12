@@ -108,12 +108,13 @@ export class UserService {
   }
 
   checkSubscription(user: UserModel) {
-    const url = environment.api + '/user/' + user.id + '/abonnements';
+    const url = environment.api + '/user/' + environment.journalid + '/abonnements';
 
     const params = {
       headers: this.header,
+      email: user.email
     }
 
-    return this.http.get(url, params);
+    return this.http.post(url, params);
   }
 }

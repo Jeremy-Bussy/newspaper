@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleModel } from '../shared/models/article.model';
 import { ArticleService } from '../shared/services/article.service';
+import {UserModel} from "../shared/models/user.model";
 
 @Component({
   selector: 'app-homepage',
@@ -8,6 +9,11 @@ import { ArticleService } from '../shared/services/article.service';
   styleUrls: ['./homepage.component.scss'],
 })
 export class HomepageComponent implements OnInit {
+
+  user?:UserModel;
+
+  articles:ArticleModel[] = [];
+
   mockupData: ArticleModel[] = [
     {
       id: 1,
@@ -18,9 +24,9 @@ export class HomepageComponent implements OnInit {
       date_creation: '2022-01-01',
       premium: false,
       visible: true,
-      category_name: 'Economics',
+      categorie: 'Economics',
       image: 'https://example.com/image.jpg',
-      author_name: 'John Doe',
+      auteur: 'John Doe',
       localisation: [],
     },
     {
@@ -32,9 +38,9 @@ export class HomepageComponent implements OnInit {
       date_creation: '2022-01-01',
       premium: false,
       visible: true,
-      category_name: 'Economics',
+      categorie: 'Economics',
       image: 'https://example.com/image.jpg',
-      author_name: 'John Doe',
+      auteur: 'John Doe',
       localisation: [],
     },
     {
@@ -46,9 +52,9 @@ export class HomepageComponent implements OnInit {
       date_creation: '2022-01-01',
       premium: false,
       visible: true,
-      category_name: 'Economics',
+      categorie: 'Economics',
       image: 'https://example.com/image.jpg',
-      author_name: 'John Doe',
+      auteur: 'John Doe',
       localisation: [],
     },
     {
@@ -60,9 +66,9 @@ export class HomepageComponent implements OnInit {
       date_creation: '2022-01-01',
       premium: false,
       visible: true,
-      category_name: 'Economics',
+      categorie: 'Economics',
       image: 'https://example.com/image.jpg',
-      author_name: 'John Doe',
+      auteur: 'John Doe',
       localisation: [],
     },
     {
@@ -74,9 +80,9 @@ export class HomepageComponent implements OnInit {
       date_creation: '2022-01-01',
       premium: false,
       visible: true,
-      category_name: 'Economics',
+      categorie: 'Economics',
       image: 'https://example.com/image.jpg',
-      author_name: 'John Doe',
+      auteur: 'John Doe',
       localisation: [],
     },
     {
@@ -88,9 +94,9 @@ export class HomepageComponent implements OnInit {
       date_creation: '2022-01-01',
       premium: false,
       visible: true,
-      category_name: 'Economics',
+      categorie: 'Economics',
       image: 'https://example.com/image.jpg',
-      author_name: 'John Doe',
+      auteur: 'John Doe',
       localisation: [],
     },
   ];
@@ -98,9 +104,17 @@ export class HomepageComponent implements OnInit {
   constructor(private articleService: ArticleService) {}
 
   ngOnInit(): void {
+    let user = localStorage.getItem('user');
+    if(user != null){
+      this.user = JSON.parse(user);
+      console.log(this.user);
+    }
+
+
     this.articleService.getAllArticles().subscribe(
       result => {
-        console.log(result);
+        this.articles = result;
+        console.log(this.articles)
       }
     )
   }
