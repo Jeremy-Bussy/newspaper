@@ -25,5 +25,5 @@ export class RoleGuard implements CanActivate {
     // Redirect to the homepage or show an error message
     return this.router.parseUrl('/'); // Redirect to the homepage
   }
-  
+
 }

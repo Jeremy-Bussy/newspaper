@@ -19,20 +19,24 @@ export class ArticleCardComponent implements OnInit {
 
 
   openArticleDialog() {
-    if (this.isSubscribed) {
-      const dialogRef = this.dialog.open(ArticleModalComponent, {
-        width: '800px',
-        data: {
-          name: this.article?.auteur_name,
-          category: this.article?.categorie_name,
-          image: this.article?.image,
-          title: this.article?.titre,
-          content: this.article?.corp,
+    this.articleService.getArticleById(this.article || new ArticleModel()).subscribe({
+        next: any => {
+          this.dialog.open(ArticleModalComponent, {
+            width: '800px',
+            data: {
+              name: this.article?.auteur,
+              category: this.article?.categorie,
+              image: this.article?.image,
+              title: this.article?.titre,
+              content: this.article?.corp,
+            },
+          });
         },
-      });
-    } else {
-      this.openSubscribeDialog();
-    }
+        error: any => {
+          this.openSubscribeDialog();
+        }
+      }
+    )
   }
 
   openSubscribeDialog() {
