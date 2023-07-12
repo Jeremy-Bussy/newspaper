@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbonnementModel } from '../../models/abonnement.model';
 import { AbonnementService } from '../../services/abonnement.service';
+import {UserModel} from "../../models/user.model";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-subscribe-modal',
@@ -17,14 +19,14 @@ export class SubscribeModalComponent implements OnInit {
   }
 
   onSubscribe() {
-    let abonnement = new AbonnementModel();
-    console.log(localStorage.getItem('userId'));
-    if(localStorage.getItem('userId')) {
-      abonnement.users_id = parseInt(localStorage.getItem('userId')!, 10);
-      console.log(abonnement);
-      this.abonnementService.addAbonnement(abonnement).subscribe(
+    let user = localStorage.getItem('user');
+    if(user != null){
+      let userAuth: UserModel = JSON.parse(user);
+      let abo: AbonnementModel = new AbonnementModel();
+      abo.users_id = userAuth.id
+      abo.journal_id = environment.journalid;
+      this.abonnementService.addAbonnement(abo).subscribe(
         response => {
-          console.log(response);
           this.hasSubscribe.emit(true);
         }
       );

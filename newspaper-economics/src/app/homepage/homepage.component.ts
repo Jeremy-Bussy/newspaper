@@ -20,7 +20,6 @@ export class HomepageComponent implements OnInit {
     let user = localStorage.getItem('user');
     if(user != null){
       this.user = JSON.parse(user);
-      console.log(this.user);
     }
 
 

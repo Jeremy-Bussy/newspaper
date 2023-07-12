@@ -21,13 +21,8 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.authService.authentificate(this.auth.email!, this.auth.password!).subscribe(
       (response: any) => {
-        localStorage.setItem('accessToken', JSON.stringify(response.access_token));
+        localStorage.setItem('accessToken', response.access_token);
         response.user.password = null;
-        this.userService.checkSubscription(response.user).subscribe(
-          (response:any) => {
-            console.log(response);
-          }
-        )
         localStorage.setItem('user', JSON.stringify(response.user));
         this.router.navigate(['/']);
       }
