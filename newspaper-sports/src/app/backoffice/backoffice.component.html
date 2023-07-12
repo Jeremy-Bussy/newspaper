@@ -29,19 +29,17 @@
         </div>
         <div class="form-group">
           <label for="tags">Tags</label>
-          <input
-            type="text"
-            id="tags"
-            class="form-control"
-            [(ngModel)]="article.tags"
-            name="tags"
-            placeholder="e.g. #economics, #politics, #finance"
-          />
+          <select name="tag" id="tag">
+            <option value="economics">Economics</option>
+            <option value="politics">Politics</option>
+            <option value="sports">Sports</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="image">Image URL</label>
           <input
-            type="text"
+            type="file"
+            accept="image/*"
             id="image"
             class="form-control"
             [(ngModel)]="article.image"

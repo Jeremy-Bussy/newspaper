@@ -41,5 +41,10 @@
     background: none;
     color: rgb(61, 161, 255);
     border: none;
+
+    &:hover {
+      text-decoration: underline;
+      color: rgb(61, 161, 255) !important;
+    }
   }
 }
