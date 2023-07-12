@@ -7,4 +7,5 @@ export class UserModel {
   google_token: string | null = null;
   role: number | null = null;
   remember_token: string | null = null;
+  premium: boolean | null = null;
 }

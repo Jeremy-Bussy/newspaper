@@ -15,7 +15,13 @@ import { BackofficeComponent } from './backoffice/backoffice.component';
 import { UserListComponent } from './backoffice/user-list/user-list.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SubscribeModalComponent } from './shared/article-card/subscribe-modal/subscribe-modal.component';
+
+import { AbonnementService } from './shared/services/abonnement.service';
+import { ArticleService } from './shared/services/article.service';
 import { AuthService } from './shared/services/auth.service';
+import { CategoriesService } from './shared/services/categories.service';
+import { UserService } from './shared/services/user.service';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +44,11 @@ import { AuthService } from './shared/services/auth.service';
     HttpClientModule,
   ],
   providers: [
-    AuthService
+    AbonnementService,
+    ArticleService,
+    AuthService,
+    CategoriesService,
+    UserService,
   ],
   bootstrap: [AppComponent],
 })

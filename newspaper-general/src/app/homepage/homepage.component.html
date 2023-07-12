@@ -1,16 +1,23 @@
 <div class="newspaper-wrapper">
   <div class="newspaper-container container">
     <div class="user-info">
-      <div class="left-side">
-        <img
-          src="assets/images/profile-picture-holder.png"
-          alt="Profile picture"
-          class="profile-picture"
-        />
+      <div *ngIf="user; else connexion">
+        <div class="left-side">
+          <img
+            src="assets/images/profile-picture-holder.png"
+            alt="Profile picture"
+            class="profile-picture"
+          />
+        </div>
+        <strong>{{ user.name | titlecase }}</strong>
       </div>
+      <ng-template #connexion>
+        <div>
+          <button routerLink="/login">Connexion</button>
+        </div>
+      </ng-template>
       <div class="right-side">
-        <p>Articles for</p>
-        <strong>{{ "john" | titlecase }} {{ "doe" | uppercase }}</strong>
+
       </div>
     </div>
     <div class="newspaper-header">
@@ -20,7 +27,7 @@
       <strong>RESOURCES YOU FOLLOW</strong>
     </div>
     <div class="following section">
-      <ng-container *ngFor="let article of mockupData">
+      <ng-container *ngFor="let article of articles">
         <app-article-card [article]="article"></app-article-card>
         <div class="card-divider"></div>
       </ng-container>

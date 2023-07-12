@@ -10,7 +10,6 @@
           class="form-control"
           placeholder="e.g. address@example.com"
           [(ngModel)]="auth.email"
-          required
         />
       </div>
       <div class="form-group">
@@ -21,15 +20,11 @@
           class="form-control"
           placeholder="Enter your password"
           [(ngModel)]="auth.password"
-          required
         />
       </div>
-      <button
-        type="submit"
-        class="btn btn-primary"
-        (click)="login()"
-        [disabled]="!auth.email || !auth.password"
-      >
+      <button type="submit" class="btn btn-primary" (click)="login()">
+        <!--        [disabled]="!auth.email || !auth.password"-->
+        <!--      >-->
         Login
       </button>
       <div class="or-divider">or</div>

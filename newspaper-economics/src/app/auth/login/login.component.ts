@@ -22,18 +22,12 @@ export class LoginComponent implements OnInit {
     this.authService.authentificate(this.auth.email!, this.auth.password!).subscribe(
       (response: any) => {
         localStorage.setItem('accessToken', response.access_token);
-<<<<<<< HEAD
         if (response.user) {
           localStorage.setItem('userId', response.user.id);
           localStorage.setItem('user', JSON.stringify(response.user));
           localStorage.setItem('username', response.user.name);
-          window.location.href = '/';
+          this.router.navigate(['/']);
         }
-=======
-        response.user.password = null;
-        localStorage.setItem('user', JSON.stringify(response.user));
-        this.router.navigate(['/']);
->>>>>>> b25d98adf670e8f55d86958ff7ee61c61b4ea2fe
       }
     );
   }
