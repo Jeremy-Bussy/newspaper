@@ -28,6 +28,17 @@ export class LoginComponent implements OnInit {
     );
   }
   loginGoogle(): void {
-
+    this.authService.selectGoogleAccount().subscribe(
+      response => {
+        this.authService.getGoogleToken().subscribe(
+          (googleReponse: any) => {
+            localStorage.setItem('accessToken', googleReponse.access_token);
+            if (googleReponse.user) {
+              localStorage.setItem('username', googleReponse.user.name);
+            }
+          }
+        )
+      }
+    )
   }
 }

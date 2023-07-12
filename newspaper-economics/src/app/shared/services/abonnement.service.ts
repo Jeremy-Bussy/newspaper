@@ -4,6 +4,7 @@ import { UserModel } from '../models/user.model';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
+@Injectable()
 export class AbonnementService {
   header = new HttpHeaders({ "Authorization": "Bearer " + localStorage.getItem('accessToken')});
 

@@ -7,9 +7,6 @@ import { AuthModel } from '../models/auth.model';
 
 @Injectable()
 export class AuthService {
-
-  header = new HttpHeaders({ "Authorization": "Bearer " + localStorage.getItem('accessToken')});
-
   constructor(private http: HttpClient) {
   }
 
@@ -17,13 +14,22 @@ export class AuthService {
     const url = environment.api + '/auth';
 
     const params = {
-      headers: this.header,
       email,
       password
     };
 
     return this.http.post<any>(url, params);
   }
-  
-  select
+
+  selectGoogleAccount() {
+    const url = environment.apiGoogle;
+
+    return this.http.get(url);
+  }
+
+  getGoogleToken() {
+    const url = environment.apiGoogle + '/callback';
+
+    return this.http.get(url);
+  }
 }
