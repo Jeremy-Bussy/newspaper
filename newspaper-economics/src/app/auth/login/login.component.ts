@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthModel } from 'src/app/shared/models/auth.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
@@ -8,8 +9,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  email: string | null = null;
-  password: string | null = null;
+  auth: AuthModel = new AuthModel();
 
   constructor(private authService: AuthService) { }
 
@@ -17,8 +17,10 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.authService.authentificate(this.email!, this.password!).subscribe(
-      response => {
+    console.log('login clicked');
+    console.log(this.auth);
+    this.authService.authentificate(this.auth.email!, this.auth.password!).subscribe(
+      (response: any) => {
         console.log(response);
         localStorage.setItem('accessToken', response.access_token);
         localStorage.setItem('username', response.user.name);

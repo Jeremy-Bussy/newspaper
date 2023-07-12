@@ -28,8 +28,8 @@
           ></textarea>
         </div>
         <div class="form-group">
-          <label for="tag">Tags</label>
-          <select name="tag" id="tag" [(ngModel)]="article.category">
+          <label for="tags">Tags</label>
+          <select name="tag" id="tag">
             <option value="economics">Economics</option>
             <option value="politics">Politics</option>
             <option value="sports">Sports</option>
@@ -42,30 +42,23 @@
             accept="image/*"
             id="image"
             class="form-control"
-            [(ngModel)]="article.imageUrl"
+            [(ngModel)]="article.image"
             name="image"
             placeholder="https://"
           />
         </div>
         <div class="form-group">
-          <label for="gpsLongitude">GPS Longitude</label>
+          <label for="gpsStreetMapTag">GPS Street Map Tag</label>
           <input
-            type="int"
-            id="gpsLongitude"
+            type="text"
+            id="gpsStreetMapTag"
             class="form-control"
-            [(ngModel)]="article.longitude"
-            name="gpsLongitude"
-          />
-          <label for="gpsLatitude">GPS Latitude</label>
-          <input
-            type="int"
-            id="gpsLatitude"
-            class="form-control"
-            [(ngModel)]="article.latitude"
-            name="gpsLatitude"
+            [(ngModel)]="article.gpsStreetMapTag"
+            name="gpsStreetMapTag"
+            placeholder="https://"
           />
         </div>
-        <button type="submit" class="btn btn-primary" (click)="onPublish()">Publish</button>
+        <button type="submit" class="btn btn-primary">Publish</button>
       </form>
     </div>
     <div class="user-list" *ngIf="isLoggedUserAdmin">

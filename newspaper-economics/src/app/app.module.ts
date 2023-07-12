@@ -15,9 +15,8 @@ import { BackofficeComponent } from './backoffice/backoffice.component';
 import { UserListComponent } from './backoffice/user-list/user-list.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SubscribeModalComponent } from './shared/article-card/subscribe-modal/subscribe-modal.component';
-import { MapInitDirective } from './shared/article-card/map-init.directive';
-
 import { AuthService } from './shared/services/auth.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +28,6 @@ import { AuthService } from './shared/services/auth.service';
     UserListComponent,
     LoginComponent,
     SubscribeModalComponent,
-    MapInitDirective,
   ],
   imports: [
     BrowserModule,

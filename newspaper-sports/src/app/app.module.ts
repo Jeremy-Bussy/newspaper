@@ -4,16 +4,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ArticleCardComponent } from './shared/article-card/article-card.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ArticleModalComponent } from './shared/article-card/article-modal/article-modal.component';
-import { LoginComponent } from './auth/login/login.component';
-import { SubscribeModalComponent } from './shared/article-card/subscribe-modal/subscribe-modal.component';
 import { BackofficeComponent } from './backoffice/backoffice.component';
 import { UserListComponent } from './backoffice/user-list/user-list.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SubscribeModalComponent } from './shared/article-card/subscribe-modal/subscribe-modal.component';
+import { AuthService } from './shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -22,10 +24,10 @@ import { UserListComponent } from './backoffice/user-list/user-list.component';
     ArticleCardComponent,
     FooterComponent,
     ArticleModalComponent,
-    LoginComponent,
-    SubscribeModalComponent,
     BackofficeComponent,
     UserListComponent,
+    LoginComponent,
+    SubscribeModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,8 +35,11 @@ import { UserListComponent } from './backoffice/user-list/user-list.component';
     BrowserAnimationsModule,
     MatDialogModule,
     FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
