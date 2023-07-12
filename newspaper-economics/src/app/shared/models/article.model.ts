@@ -14,3 +14,5 @@ export class ArticleModel {
   date_creation: string | null = null;
   localisation: LocalisationModel[] = [];
 }
+export { LocalisationModel };
+

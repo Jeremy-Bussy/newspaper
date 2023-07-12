@@ -1,10 +1,15 @@
 <div class="article-modal-wrapper">
   <div class="article-modal-container container">
-    <h2 class="modal-title">{{ data.titre }}</h2>
-    <p>{{ data.auteur_name }} • # {{ data.categorie_name }}</p>
+    <h2 class="modal-title">{{ article.titre }}</h2>
+    <p>{{ article.auteur_name }} • # {{ article.categorie_name }}</p>
     <div class="divider">
-      <img class="modal-image" src="{{ data.image }}" alt="Image" />
+      <img class="modal-image" src="{{ article.image }}" alt="Image" />
     </div>
-    <p>{{ data.corp }}</p>
+    <p>{{ article.corp }}</p>
+
+    <!-- Add map container -->
+    <div class="map-wrapper">
+      <div id="map" class="map-container"></div>
+    </div>
   </div>
 </div>
