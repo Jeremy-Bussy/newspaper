@@ -63,7 +63,7 @@ export class ArticleService {
   }
 
   getAllArticles(): Observable<any> {
-    const url = environment.api + 'journaux/'+ environment.journalid +'/articles';
+    const url = environment.api + '/journaux/'+ environment.journalid +'/articles';
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('accessToken'));
 
     return this.http.get(url, {headers});
